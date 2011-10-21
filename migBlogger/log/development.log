@@ -1,0 +1,214 @@
+  [1m[36m (0.0ms)[0m  [1mselect sqlite_version(*)[0m
+  [1m[35m (100.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36m (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35m (120.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+Migrating to CreatePosts (20111006061221)
+  [1m[35m (0.0ms)[0m  CREATE TABLE "posts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar(255), "body" text, "created_at" datetime, "updated_at" datetime) 
+  [1m[36m (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20111006061221')[0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations" [0m
+  [1m[35m (0.0ms)[0m  PRAGMA index_list("posts")
+
+
+Started GET "/assets/rails.png" for 127.0.0.1 at 2011-10-20 22:38:27 -0600
+Served asset /rails.png - 200 OK (100ms)
+
+
+Started GET "/post" for 127.0.0.1 at 2011-10-20 22:39:10 -0600
+
+ActionController::RoutingError (No route matches [GET] "/post"):
+  
+
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (250.0ms)
+
+
+Started GET "/post" for 127.0.0.1 at 2011-10-20 22:39:12 -0600
+
+ActionController::RoutingError (No route matches [GET] "/post"):
+  
+
+Rendered c:/Ruby192/lib/ruby/gems/1.9.1/gems/actionpack-3.1.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2011-10-20 22:39:12 -0600
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" [0m
+Rendered posts/index.html.erb within layouts/application (0.0ms)
+Compiled application.css  (39ms)  (pid 3224)
+Compiled posts.css  (60ms)  (pid 3224)
+Compiled scaffolds.css  (59ms)  (pid 3224)
+Compiled application.js  (110ms)  (pid 3224)
+Compiled jquery.js  (220ms)  (pid 3224)
+Compiled jquery_ujs.js  (9ms)  (pid 3224)
+Compiled posts.js  (2120ms)  (pid 3224)
+Completed 200 OK in 3240ms (Views: 3230.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2011-10-20 22:39:17 -0600
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" 
+Rendered posts/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 60ms (Views: 60.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2011-10-20 22:39:18 -0600
+Served asset /application.css - 200 OK (100ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2011-10-20 22:39:18 -0600
+Served asset /scaffolds.css - 200 OK (70ms)
+
+
+Started GET "/assets/posts.css?body=1" for 127.0.0.1 at 2011-10-20 22:39:18 -0600
+Served asset /posts.css - 200 OK (50ms)
+
+
+Started GET "/assets/posts.js?body=1" for 127.0.0.1 at 2011-10-20 22:39:18 -0600
+Served asset /posts.js - 200 OK (49ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2011-10-20 22:39:18 -0600
+Served asset /jquery_ujs.js - 200 OK (79ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2011-10-20 22:39:18 -0600
+Served asset /jquery.js - 200 OK (80ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2011-10-20 22:39:18 -0600
+Served asset /application.js - 200 OK (100ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2011-10-20 22:39:27 -0600
+  Processing by PostsController#new as HTML
+Rendered posts/_form.html.erb (40.0ms)
+Rendered posts/new.html.erb within layouts/application (320.0ms)
+Completed 200 OK in 410ms (Views: 410.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2011-10-20 22:39:37 -0600
+  Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SSAqfLH2/qPUs4YcBoEhjXbSPXZSVEtxP8iaafUfiTs=", "post"=>{"title"=>"Hello World", "body"=>"Hi"}, "commit"=>"Create Post"}
+  [1m[36mSQL (620.0ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "Hi"], ["created_at", Fri, 21 Oct 2011 04:39:37 UTC +00:00], ["title", "Hello World"], ["updated_at", Fri, 21 Oct 2011 04:39:37 UTC +00:00]]
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 960ms
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2011-10-20 22:39:38 -0600
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", "1"]]
+Rendered posts/show.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 90ms (Views: 70.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2011-10-20 22:39:46 -0600
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" [0m
+Rendered posts/index.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 80ms (Views: 70.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at 2011-10-20 22:39:51 -0600
+  Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", "1"]]
+Rendered posts/_form.html.erb (30.0ms)
+Rendered posts/edit.html.erb within layouts/application (50.0ms)
+Completed 200 OK in 100ms (Views: 90.0ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/posts/1" for 127.0.0.1 at 2011-10-20 22:39:58 -0600
+  Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SSAqfLH2/qPUs4YcBoEhjXbSPXZSVEtxP8iaafUfiTs=", "post"=>{"title"=>"Hello World", "body"=>"Hi Miggy"}, "commit"=>"Update Post", "id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", "1"]]
+  [1m[35m (10.0ms)[0m  UPDATE "posts" SET "body" = 'Hi Miggy', "updated_at" = '2011-10-21 04:39:59.338650' WHERE "posts"."id" = 1
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 190ms
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2011-10-20 22:39:59 -0600
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Rendered posts/show.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 70ms (Views: 70.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/1/edit" for 127.0.0.1 at 2011-10-20 22:40:03 -0600
+  Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", "1"]]
+Rendered posts/_form.html.erb (30.0ms)
+Rendered posts/edit.html.erb within layouts/application (40.0ms)
+Completed 200 OK in 90ms (Views: 80.0ms | ActiveRecord: 0.0ms)
+
+
+Started PUT "/posts/1" for 127.0.0.1 at 2011-10-20 22:40:05 -0600
+  Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SSAqfLH2/qPUs4YcBoEhjXbSPXZSVEtxP8iaafUfiTs=", "post"=>{"title"=>"Hello World", "body"=>"Hi Miggy"}, "commit"=>"Update Post", "id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", "1"]]
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 40ms
+
+
+Started GET "/posts/1" for 127.0.0.1 at 2011-10-20 22:40:05 -0600
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", "1"]]
+Rendered posts/show.html.erb within layouts/application (260.0ms)
+Completed 200 OK in 320ms (Views: 310.0ms | ActiveRecord: 10.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2011-10-20 22:40:07 -0600
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" [0m
+Rendered posts/index.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 80ms (Views: 70.0ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/posts/1" for 127.0.0.1 at 2011-10-20 22:40:16 -0600
+  Processing by PostsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"SSAqfLH2/qPUs4YcBoEhjXbSPXZSVEtxP8iaafUfiTs=", "id"=>"1"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", "1"]]
+  [1m[36mSQL (0.0ms)[0m  [1mDELETE FROM "posts" WHERE "posts"."id" = ?[0m  [["id", 1]]
+Redirected to http://localhost:3000/posts
+Completed 302 Found in 350ms
+
+
+Started GET "/posts" for 127.0.0.1 at 2011-10-20 22:40:16 -0600
+  Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" 
+Rendered posts/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 60ms (Views: 50.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for 127.0.0.1 at 2011-10-20 22:40:18 -0600
+  Processing by PostsController#new as HTML
+Rendered posts/_form.html.erb (30.0ms)
+Rendered posts/new.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 80ms (Views: 80.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for 127.0.0.1 at 2011-10-20 22:40:31 -0600
+  Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"SSAqfLH2/qPUs4YcBoEhjXbSPXZSVEtxP8iaafUfiTs=", "post"=>{"title"=>"Hello Miggy", "body"=>"Hello "}, "commit"=>"Create Post"}
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "posts" ("body", "created_at", "title", "updated_at") VALUES (?, ?, ?, ?)[0m  [["body", "Hello "], ["created_at", Fri, 21 Oct 2011 04:40:31 UTC +00:00], ["title", "Hello Miggy"], ["updated_at", Fri, 21 Oct 2011 04:40:31 UTC +00:00]]
+Redirected to http://localhost:3000/posts/2
+Completed 302 Found in 211ms
+
+
+Started GET "/posts/2" for 127.0.0.1 at 2011-10-20 22:40:31 -0600
+  Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", "2"]]
+Rendered posts/show.html.erb within layouts/application (20.0ms)
+Completed 200 OK in 80ms (Views: 70.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts" for 127.0.0.1 at 2011-10-20 22:40:37 -0600
+  Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts" [0m
+Rendered posts/index.html.erb within layouts/application (30.0ms)
+Completed 200 OK in 80ms (Views: 70.0ms | ActiveRecord: 0.0ms)
